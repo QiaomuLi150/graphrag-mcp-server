@@ -8,6 +8,7 @@ from typing import Any
 
 import uvicorn
 from fastmcp import FastMCP
+from fastmcp import settings as fastmcp_settings
 from starlette.applications import Starlette
 from starlette.middleware import Middleware
 
@@ -31,6 +32,7 @@ def create_app(settings: Settings | None = None, repository: GraphRepository | N
             "environment": settings.environment,
         },
     )
+    fastmcp_settings.enable_subscriptions_listen = False  # no standing channel/notifications are offered
     repo: GraphRepository = repository or Neo4jRepository(settings)
     service = GraphToolService(repo, settings)
     verifier = PrincipalJWTVerifier(settings)

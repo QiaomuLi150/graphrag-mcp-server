@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 from collections.abc import Awaitable, Callable
-from typing import Annotated, TypeVar
+from typing import Annotated, Any, TypeVar
 
 from fastmcp import FastMCP
 from fastmcp.exceptions import ToolError as McpToolError
@@ -96,6 +96,33 @@ async def _guard(call: Callable[[str], Awaitable[T]]) -> T:
         raise _wire(f) from None
 
 
+def _advertise_only_what_is_supported(mcp: FastMCP) -> None:
+    """Make `server/discover` / `initialize` capabilities match reality: static tools only.
+
+    FastMCP advertises prompts/resources/logging/UI-extension and listChanged by default. This server registers
+    no prompts or resources, emits no log notifications and never changes its tool list, so claiming them would be false.
+    """
+    from mcp_types import ToolsCapability
+
+    server = mcp._mcp_server
+    original = server.get_capabilities
+
+    def get_capabilities(*args: Any, **kwargs: Any) -> Any:
+        caps = original(*args, **kwargs)
+        return caps.model_copy(
+            update={
+                "prompts": None,
+                "resources": None,
+                "logging": None,
+                "extensions": None,
+                "completions": None,
+                "tools": ToolsCapability(list_changed=False),
+            }
+        )
+
+    server.get_capabilities = get_capabilities  # type: ignore[method-assign]
+
+
 def build_server(service: GraphToolService, auth: AuthProvider, **kwargs: object) -> FastMCP:
     mcp = FastMCP("graphrag-mcp", instructions=INSTRUCTIONS, auth=auth, mask_error_details=True, **kwargs)  # type: ignore[arg-type]
 
@@ -144,6 +171,7 @@ def build_server(service: GraphToolService, auth: AuthProvider, **kwargs: object
         return await _guard(lambda p: service.retrieve_graph_context(p, query, top_k, max_chars))
 
     mcp.add_middleware(TypedValidationErrors())
+    _advertise_only_what_is_supported(mcp)
     _ = (search_entities, get_entity, find_relationship_paths, retrieve_graph_context)
     return mcp
 

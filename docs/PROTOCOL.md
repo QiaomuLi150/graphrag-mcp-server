@@ -31,6 +31,5 @@ Result (`eval/results/two_instance_stateless.json`, 2026-11-23, local machine):
 ## Honest limits
 * This demonstrates request-level statelessness on one host; it is not a multi-region/HA claim.
 * Rate limiting and the concurrency cap are per process (in memory), so two instances double the effective limit.
-* `server/discover` currently also advertises capabilities FastMCP enables by default (prompts/resources `listChanged`, `subscribe`) although this server
-  registers none; they are inert (no standing server→client channel in this protocol era). `ttlMs` is 0 (no discover caching).
+* Advertised capabilities are trimmed to what is implemented: `server/discover` reports only `tools` (`listChanged: false`); no prompts, resources, logging, completions, extensions or `subscriptions/listen` (`test_advertised_capabilities_match_supported_functionality`). `ttlMs` is 0 (no discover caching).
 * The MCP Inspector was not run (see RELEASE_EVIDENCE).

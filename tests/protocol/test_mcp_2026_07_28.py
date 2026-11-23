@@ -122,3 +122,14 @@ async def test_two_processes_without_sticky_sessions(settings, keys, mint):
     assert rep["verdict"], rep
     assert rep["client_negotiated_protocol"] == "2026-07-28"
     assert rep["tool_calls_served"]["A"] > 0 and rep["tool_calls_served"]["B"] > 0
+
+
+def test_advertised_capabilities_match_supported_functionality(server, mint):
+    caps = rpc(server, mint(), "server/discover").json()["result"]["capabilities"]
+    assert set(caps) == {"tools"}, caps  # no prompts/resources/logging/extensions are implemented
+    assert not caps["tools"].get("listChanged")
+    # Unadvertised list methods may answer, but only with empty collections: nothing is implemented.
+    assert rpc(server, mint(), "prompts/list").json()["result"]["prompts"] == []
+    assert rpc(server, mint(), "resources/list").json()["result"]["resources"] == []
+    r = rpc(server, mint(), "subscriptions/listen")
+    assert r.status_code in (400, 404) or "error" in r.json()
