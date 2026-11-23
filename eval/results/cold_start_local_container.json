@@ -1,0 +1,30 @@
+{
+  "description": "fresh container of the runtime image on the local Docker host (image cached, Neo4j already running); NOT Cloud Run cold start",
+  "runs": [
+    {
+      "container_start_to_ready_s": 2.22,
+      "first_client_session_plus_call_ms": 482,
+      "second_client_session_plus_call_ms": 29
+    },
+    {
+      "container_start_to_ready_s": 2.32,
+      "first_client_session_plus_call_ms": 307,
+      "second_client_session_plus_call_ms": 32
+    },
+    {
+      "container_start_to_ready_s": 2.24,
+      "first_client_session_plus_call_ms": 308,
+      "second_client_session_plus_call_ms": 28
+    },
+    {
+      "container_start_to_ready_s": 2.3,
+      "first_client_session_plus_call_ms": 315,
+      "second_client_session_plus_call_ms": 37
+    },
+    {
+      "container_start_to_ready_s": 2.22,
+      "first_client_session_plus_call_ms": 311,
+      "second_client_session_plus_call_ms": 32
+    }
+  ]
+}

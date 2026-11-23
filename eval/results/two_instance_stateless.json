@@ -1,0 +1,152 @@
+{
+  "pids": {
+    "A": 3023744,
+    "B": 3023745
+  },
+  "ports": {
+    "A": 53187,
+    "B": 47567
+  },
+  "raw_wire_alternating": {
+    "requests": 12,
+    "all_ok": true,
+    "mcp_session_id_headers_seen": 0,
+    "no_initialize_sent": true,
+    "identical_call_results": true,
+    "detail": [
+      {
+        "i": 0,
+        "instance": "instance-A",
+        "method": "server/discover",
+        "status": 200,
+        "ok": true
+      },
+      {
+        "i": 1,
+        "instance": "instance-B",
+        "method": "tools/list",
+        "status": 200,
+        "ok": true
+      },
+      {
+        "i": 2,
+        "instance": "instance-A",
+        "method": "tools/call",
+        "status": 200,
+        "ok": true,
+        "path": [
+          "feat-gift-cards",
+          "svc-ledger-api",
+          "svc-edge-gateway-service",
+          "svc-ledger-service"
+        ]
+      },
+      {
+        "i": 3,
+        "instance": "instance-B",
+        "method": "server/discover",
+        "status": 200,
+        "ok": true
+      },
+      {
+        "i": 4,
+        "instance": "instance-A",
+        "method": "tools/list",
+        "status": 200,
+        "ok": true
+      },
+      {
+        "i": 5,
+        "instance": "instance-B",
+        "method": "tools/call",
+        "status": 200,
+        "ok": true,
+        "path": [
+          "feat-gift-cards",
+          "svc-ledger-api",
+          "svc-edge-gateway-service",
+          "svc-ledger-service"
+        ]
+      },
+      {
+        "i": 6,
+        "instance": "instance-A",
+        "method": "server/discover",
+        "status": 200,
+        "ok": true
+      },
+      {
+        "i": 7,
+        "instance": "instance-B",
+        "method": "tools/list",
+        "status": 200,
+        "ok": true
+      },
+      {
+        "i": 8,
+        "instance": "instance-A",
+        "method": "tools/call",
+        "status": 200,
+        "ok": true,
+        "path": [
+          "feat-gift-cards",
+          "svc-ledger-api",
+          "svc-edge-gateway-service",
+          "svc-ledger-service"
+        ]
+      },
+      {
+        "i": 9,
+        "instance": "instance-B",
+        "method": "server/discover",
+        "status": 200,
+        "ok": true
+      },
+      {
+        "i": 10,
+        "instance": "instance-A",
+        "method": "tools/list",
+        "status": 200,
+        "ok": true
+      },
+      {
+        "i": 11,
+        "instance": "instance-B",
+        "method": "tools/call",
+        "status": 200,
+        "ok": true,
+        "path": [
+          "feat-gift-cards",
+          "svc-ledger-api",
+          "svc-edge-gateway-service",
+          "svc-ledger-service"
+        ]
+      }
+    ]
+  },
+  "client_negotiated_protocol": "2026-07-28",
+  "modern_client_via_proxy": {
+    "calls": 30,
+    "errors": 0
+  },
+  "legacy_handshake_client_via_proxy": {
+    "negotiated": "2025-11-25",
+    "calls_ok": 10,
+    "calls": 10
+  },
+  "tool_calls_served": {
+    "A": 22,
+    "B": 22
+  },
+  "after_instance_A_killed": {
+    "calls": 10,
+    "errors": 0,
+    "extra_calls_served_by_B": 10
+  },
+  "proxy": {
+    "requests_forwarded": 58,
+    "responses_with_session_id_header": 0
+  },
+  "verdict": true,
+  "run_at": "2026-11-23T23:39:48Z"
+}

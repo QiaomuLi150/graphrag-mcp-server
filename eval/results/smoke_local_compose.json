@@ -1,0 +1,63 @@
+{
+  "target": "local-compose-community",
+  "run_at": "2026-11-23T23:27:37Z",
+  "passed": true,
+  "steps": [
+    {
+      "step": "unauthenticated_request_rejected",
+      "pass": true,
+      "http_status": 401
+    },
+    {
+      "step": "health",
+      "pass": true,
+      "http_status": 200
+    },
+    {
+      "step": "list_tools",
+      "pass": true,
+      "tools": [
+        "find_relationship_paths",
+        "get_entity",
+        "retrieve_graph_context",
+        "search_entities"
+      ],
+      "ms": 270
+    },
+    {
+      "step": "known_entity",
+      "pass": true,
+      "top": "svc-ledger-service",
+      "request_id": "f4b0e52614c74bc2805854db58e25110",
+      "graph_revision": "demo-fbbbfb9663a7feee"
+    },
+    {
+      "step": "known_multihop_path",
+      "pass": true,
+      "hops": 3,
+      "request_id": "1c45936d5c564bf2b498d4cfbf14f9d1"
+    },
+    {
+      "step": "absent_path_returns_empty",
+      "pass": true,
+      "request_id": "d18d7881f9e549c49329e411f6e8abca"
+    },
+    {
+      "step": "unanswerable_abstains",
+      "pass": true,
+      "request_id": "54f18cc252f841e99f80060271abef1b"
+    },
+    {
+      "step": "malformed_input",
+      "pass": true,
+      "code": "INVALID_ARGUMENT",
+      "request_id": "62558802bb0f489bb5629877bb87be8e"
+    },
+    {
+      "step": "unknown_entity",
+      "pass": true,
+      "code": "NOT_FOUND",
+      "request_id": "68cc6e2fb47843288d6a2f4475c47b90"
+    }
+  ]
+}

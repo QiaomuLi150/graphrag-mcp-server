@@ -1,0 +1,121 @@
+{
+  "n": 11,
+  "budget_chars": 6000,
+  "lexical_hit_rate": 1.0,
+  "graph_hit_rate": 1.0,
+  "lexical_mean_chars": 5844,
+  "graph_mean_chars": 694,
+  "note": "templated questions built from corpus facts; favourable to both methods; graph additionally returns paths/linked entities that lexical search cannot",
+  "rows": [
+    {
+      "id": "context-0084",
+      "split": "dev",
+      "lexical_hit": true,
+      "lexical_chars": 5944,
+      "lexical_items": 25,
+      "graph_hit": true,
+      "graph_chars": 1001,
+      "graph_items": 20
+    },
+    {
+      "id": "context-0085",
+      "split": "unseen",
+      "lexical_hit": true,
+      "lexical_chars": 5037,
+      "lexical_items": 21,
+      "graph_hit": true,
+      "graph_chars": 248,
+      "graph_items": 5
+    },
+    {
+      "id": "context-0086",
+      "split": "frozen",
+      "lexical_hit": true,
+      "lexical_chars": 5893,
+      "lexical_items": 25,
+      "graph_hit": true,
+      "graph_chars": 661,
+      "graph_items": 15
+    },
+    {
+      "id": "context-0087",
+      "split": "dev",
+      "lexical_hit": true,
+      "lexical_chars": 5885,
+      "lexical_items": 25,
+      "graph_hit": true,
+      "graph_chars": 1065,
+      "graph_items": 21
+    },
+    {
+      "id": "context-0088",
+      "split": "unseen",
+      "lexical_hit": true,
+      "lexical_chars": 5922,
+      "lexical_items": 24,
+      "graph_hit": true,
+      "graph_chars": 735,
+      "graph_items": 15
+    },
+    {
+      "id": "context-0089",
+      "split": "dev",
+      "lexical_hit": true,
+      "lexical_chars": 5911,
+      "lexical_items": 25,
+      "graph_hit": true,
+      "graph_chars": 423,
+      "graph_items": 9
+    },
+    {
+      "id": "context-0090",
+      "split": "frozen",
+      "lexical_hit": true,
+      "lexical_chars": 5931,
+      "lexical_items": 25,
+      "graph_hit": true,
+      "graph_chars": 552,
+      "graph_items": 13
+    },
+    {
+      "id": "context-0091",
+      "split": "frozen",
+      "lexical_hit": true,
+      "lexical_chars": 5981,
+      "lexical_items": 25,
+      "graph_hit": true,
+      "graph_chars": 960,
+      "graph_items": 21
+    },
+    {
+      "id": "context-0092",
+      "split": "frozen",
+      "lexical_hit": true,
+      "lexical_chars": 5982,
+      "lexical_items": 25,
+      "graph_hit": true,
+      "graph_chars": 702,
+      "graph_items": 15
+    },
+    {
+      "id": "context-0093",
+      "split": "dev",
+      "lexical_hit": true,
+      "lexical_chars": 5852,
+      "lexical_items": 25,
+      "graph_hit": true,
+      "graph_chars": 660,
+      "graph_items": 15
+    },
+    {
+      "id": "context-0094",
+      "split": "unseen",
+      "lexical_hit": true,
+      "lexical_chars": 5946,
+      "lexical_items": 26,
+      "graph_hit": true,
+      "graph_chars": 623,
+      "graph_items": 14
+    }
+  ]
+}

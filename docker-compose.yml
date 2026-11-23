@@ -1,0 +1,75 @@
+# One-command local stack: $0, no licence acceptance, no cloud account.
+#     docker compose up -d --build --wait      # Neo4j Community + bootstrap/seed + MCP server
+#     docker compose run --rm demo             # client demonstration (mints a short-lived local dev token)
+# Everything binds to 127.0.0.1. Default passwords are LOCAL-DEV ONLY; override via env for anything else.
+# `docker compose down -v` removes all data and keys.
+# (Neo4j Enterprise variant with a real read-only DB role: docker-compose.enterprise.yml)
+name: graphrag-mcp
+
+x-admin-pw: &admin_pw ${NEO4J_ADMIN_PASSWORD:-local-dev-admin-pw}
+x-reader-pw: &reader_pw ${GRAPHRAG_READER_PASSWORD:-local-dev-reader-pw}
+
+services:
+  neo4j:
+    image: neo4j:5.23-community
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_ADMIN_PASSWORD:-local-dev-admin-pw}
+      NEO4J_server_memory_heap_max__size: 512m
+      NEO4J_server_memory_pagecache_size: 256m
+    ports: ["127.0.0.1:${NEO4J_BOLT_PORT:-27687}:7687"]
+    healthcheck:
+      test: ["CMD-SHELL", "cypher-shell -u neo4j -p \"$${NEO4J_AUTH#neo4j/}\" 'RETURN 1' || exit 1"]
+      interval: 5s
+      timeout: 10s
+      retries: 30
+
+  bootstrap:  # privileged one-shot job: creates dev keys + seeds. Not part of the serving image.
+    build: {context: ., target: seeder}
+    depends_on: {neo4j: {condition: service_healthy}}
+    environment:
+      GRAPHRAG_SEED_URI: bolt://neo4j:7687
+      GRAPHRAG_SEED_USER: neo4j
+      GRAPHRAG_SEED_PASSWORD: *admin_pw
+      GRAPHRAG_SEED_DATABASE: neo4j
+      GRAPHRAG_READER_PASSWORD: *reader_pw
+      GRAPHRAG_KEY_DIR: /keys
+    entrypoint: ["python", "-m", "tools.bootstrap"]
+    volumes: ["keys:/keys"]
+    restart: "no"
+
+  server:
+    build: {context: ., target: runtime, args: {GIT_SHA: "${GIT_SHA:-local}"}}
+    depends_on:
+      bootstrap: {condition: service_completed_successfully}
+    ports: ["127.0.0.1:${SERVER_PORT:-28080}:8080"]
+    environment:
+      GRAPHRAG_NEO4J_URI: bolt://neo4j:7687
+      GRAPHRAG_NEO4J_USER: graphrag_reader
+      GRAPHRAG_NEO4J_PASSWORD: *reader_pw
+      GRAPHRAG_NEO4J_DATABASE: neo4j
+      GRAPHRAG_AUTH_ISSUER: https://dev-issuer.local
+      GRAPHRAG_AUTH_AUDIENCE: graphrag-mcp-local
+      GRAPHRAG_AUTH_PUBLIC_KEY_FILE: /keys/dev_jwt_public.pem
+      GRAPHRAG_ENVIRONMENT: local
+    volumes: ["keys:/keys:ro"]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8080/ready', timeout=3).status == 200 else 1)"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  demo:  # client demonstration; mints a short-lived LOCAL token from the generated dev key
+    profiles: ["demo"]
+    build: {context: ., target: seeder}
+    depends_on: {server: {condition: service_healthy}}
+    environment:
+      GRAPHRAG_KEY_DIR: /keys
+      MCP_URL: http://server:8080/mcp
+    volumes: ["keys:/keys:ro"]
+    entrypoint: ["sh", "-c", "GRAPHRAG_TOKEN=$$(python -m tools.dev_token mint --ttl 600) python -m eval.demo"]
+
+volumes:
+  keys:

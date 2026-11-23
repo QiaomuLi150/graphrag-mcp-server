@@ -1,0 +1,270 @@
+[
+ [
+  "aiofile",
+  "Apache-2.0|Apache Software License"
+ ],
+ [
+  "annotated-types",
+  "MIT|MIT License"
+ ],
+ [
+  "anyio",
+  "MIT"
+ ],
+ [
+  "attrs",
+  "MIT"
+ ],
+ [
+  "authlib",
+  "BSD-3-Clause|BSD License"
+ ],
+ [
+  "beartype",
+  "MIT|MIT License"
+ ],
+ [
+  "cachetools",
+  "MIT"
+ ],
+ [
+  "caio",
+  "Apache-2.0"
+ ],
+ [
+  "certifi",
+  "MPL-2.0|Mozilla Public License 2.0 (MPL 2.0)"
+ ],
+ [
+  "cffi",
+  "MIT-0"
+ ],
+ [
+  "click",
+  "BSD-3-Clause"
+ ],
+ [
+  "cryptography",
+  "Apache-2.0 OR BSD-3-Clause"
+ ],
+ [
+  "cyclopts",
+  "Apache-2.0|Apache Software License"
+ ],
+ [
+  "dnspython",
+  "ISC"
+ ],
+ [
+  "docstring-parser",
+  "MIT|MIT License"
+ ],
+ [
+  "email-validator",
+  "Unlicense|The Unlicense (Unlicense)"
+ ],
+ [
+  "exceptiongroup",
+  "|MIT License"
+ ],
+ [
+  "fastmcp",
+  "Apache-2.0|Apache Software License"
+ ],
+ [
+  "fastmcp-slim",
+  "Apache-2.0|Apache Software License"
+ ],
+ [
+  "griffelib",
+  "ISC"
+ ],
+ [
+  "h11",
+  "MIT|MIT License"
+ ],
+ [
+  "httpcore2",
+  "BSD-3-Clause|BSD License"
+ ],
+ [
+  "httpx2",
+  "BSD-3-Clause|BSD License"
+ ],
+ [
+  "httpx2-jsfetch",
+  "?"
+ ],
+ [
+  "idna",
+  "BSD-3-Clause"
+ ],
+ [
+  "joserfc",
+  "BSD-3-Clause|BSD License"
+ ],
+ [
+  "jsonref",
+  "MIT"
+ ],
+ [
+  "jsonschema",
+  "MIT"
+ ],
+ [
+  "jsonschema-path",
+  "Apache-2.0|Apache Software License"
+ ],
+ [
+  "jsonschema-specifications",
+  "MIT"
+ ],
+ [
+  "markdown-it-py",
+  "|MIT License"
+ ],
+ [
+  "mcp",
+  "MIT|MIT License"
+ ],
+ [
+  "mcp-types",
+  "MIT|MIT License"
+ ],
+ [
+  "mdurl",
+  "|MIT License"
+ ],
+ [
+  "neo4j",
+  "Apache-2.0 AND Python-2.0"
+ ],
+ [
+  "openapi-pydantic",
+  "MIT|MIT License"
+ ],
+ [
+  "opentelemetry-api",
+  "Apache-2.0"
+ ],
+ [
+  "packaging",
+  "Apache-2.0 OR BSD-2-Clause"
+ ],
+ [
+  "pathable",
+  "Apache-2.0|Apache Software License"
+ ],
+ [
+  "platformdirs",
+  "MIT"
+ ],
+ [
+  "py-key-value-aio",
+  "Apache-2.0"
+ ],
+ [
+  "pycparser",
+  "BSD-3-Clause"
+ ],
+ [
+  "pydantic",
+  "MIT"
+ ],
+ [
+  "pydantic-core",
+  "MIT"
+ ],
+ [
+  "pydantic-settings",
+  "MIT|MIT License"
+ ],
+ [
+  "pygments",
+  "BSD-2-Clause"
+ ],
+ [
+  "pyjwt",
+  "MIT"
+ ],
+ [
+  "pyperclip",
+  "BSD|BSD License"
+ ],
+ [
+  "python-dotenv",
+  "BSD-3-Clause"
+ ],
+ [
+  "python-multipart",
+  "Apache-2.0|Apache Software License"
+ ],
+ [
+  "pytz",
+  "MIT|MIT License"
+ ],
+ [
+  "pywin32",
+  "?"
+ ],
+ [
+  "pyyaml",
+  "MIT|MIT License"
+ ],
+ [
+  "referencing",
+  "MIT"
+ ],
+ [
+  "rich",
+  "MIT|MIT License"
+ ],
+ [
+  "rich-rst",
+  "MIT"
+ ],
+ [
+  "rpds-py",
+  "MIT"
+ ],
+ [
+  "sse-starlette",
+  "BSD-3-Clause"
+ ],
+ [
+  "starlette",
+  "BSD-3-Clause"
+ ],
+ [
+  "structlog",
+  "MIT OR Apache-2.0|Apache Software License;MIT License"
+ ],
+ [
+  "truststore",
+  "MIT"
+ ],
+ [
+  "typing-extensions",
+  "PSF-2.0"
+ ],
+ [
+  "typing-inspection",
+  "MIT"
+ ],
+ [
+  "uncalled-for",
+  "MIT|MIT License"
+ ],
+ [
+  "uvicorn",
+  "BSD-3-Clause"
+ ],
+ [
+  "watchfiles",
+  "MIT|MIT License"
+ ],
+ [
+  "websockets",
+  "BSD-3-Clause"
+ ]
+]

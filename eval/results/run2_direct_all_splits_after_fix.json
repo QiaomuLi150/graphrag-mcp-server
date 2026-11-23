@@ -1,0 +1,292 @@
+{
+  "backend": "direct",
+  "by_split": {
+    "dev": {
+      "by_category": {
+        "alias": {
+          "accuracy": 1.0,
+          "correct": 5,
+          "n": 5
+        },
+        "ambiguous": {
+          "accuracy": 1.0,
+          "correct": 2,
+          "n": 2
+        },
+        "context": {
+          "accuracy": 1.0,
+          "correct": 4,
+          "n": 4
+        },
+        "entity_lookup": {
+          "accuracy": 1.0,
+          "correct": 9,
+          "n": 9
+        },
+        "malformed": {
+          "accuracy": 1.0,
+          "correct": 5,
+          "n": 5
+        },
+        "multi_hop": {
+          "accuracy": 1.0,
+          "correct": 9,
+          "n": 9
+        },
+        "no_path": {
+          "accuracy": 1.0,
+          "correct": 4,
+          "n": 4
+        },
+        "single_hop": {
+          "accuracy": 1.0,
+          "correct": 6,
+          "n": 6
+        },
+        "unanswerable": {
+          "accuracy": 1.0,
+          "correct": 2,
+          "n": 2
+        }
+      },
+      "correct_abstention_rate": 1.0,
+      "entity_precision_at_k": 1.0,
+      "entity_recall_at_k": 1.0,
+      "error_handling_accuracy": 1.0,
+      "evidence_precision": 1.0,
+      "latency": {
+        "mean_ms": 7.78,
+        "n": 46,
+        "p50_ms": 2.75,
+        "p95_ms": 10.74,
+        "p99_ms": 113.88
+      },
+      "n_cases": 46,
+      "no_path_correct_rejection_rate": 1.0,
+      "overall_accuracy": 1.0,
+      "path_recall_at_k": 1.0,
+      "shortest_path_correct": 1.0,
+      "source_attribution_coverage": 1.0,
+      "tool_success_rate": 1.0
+    },
+    "frozen": {
+      "by_category": {
+        "alias": {
+          "accuracy": 1.0,
+          "correct": 3,
+          "n": 3
+        },
+        "ambiguous": {
+          "accuracy": 1.0,
+          "correct": 1,
+          "n": 1
+        },
+        "context": {
+          "accuracy": 1.0,
+          "correct": 4,
+          "n": 4
+        },
+        "entity_lookup": {
+          "accuracy": 1.0,
+          "correct": 6,
+          "n": 6
+        },
+        "malformed": {
+          "accuracy": 1.0,
+          "correct": 3,
+          "n": 3
+        },
+        "multi_hop": {
+          "accuracy": 1.0,
+          "correct": 6,
+          "n": 6
+        },
+        "no_path": {
+          "accuracy": 1.0,
+          "correct": 2,
+          "n": 2
+        },
+        "single_hop": {
+          "accuracy": 1.0,
+          "correct": 4,
+          "n": 4
+        },
+        "unanswerable": {
+          "accuracy": 1.0,
+          "correct": 2,
+          "n": 2
+        }
+      },
+      "correct_abstention_rate": 1.0,
+      "entity_precision_at_k": 1.0,
+      "entity_recall_at_k": 1.0,
+      "error_handling_accuracy": 1.0,
+      "evidence_precision": 1.0,
+      "latency": {
+        "mean_ms": 4.86,
+        "n": 31,
+        "p50_ms": 2.9,
+        "p95_ms": 17.65,
+        "p99_ms": 22.44
+      },
+      "n_cases": 31,
+      "no_path_correct_rejection_rate": 1.0,
+      "overall_accuracy": 1.0,
+      "path_recall_at_k": 1.0,
+      "shortest_path_correct": 1.0,
+      "source_attribution_coverage": 1.0,
+      "tool_success_rate": 1.0
+    },
+    "unseen": {
+      "by_category": {
+        "alias": {
+          "accuracy": 1.0,
+          "correct": 4,
+          "n": 4
+        },
+        "ambiguous": {
+          "accuracy": 1.0,
+          "correct": 2,
+          "n": 2
+        },
+        "context": {
+          "accuracy": 1.0,
+          "correct": 3,
+          "n": 3
+        },
+        "entity_lookup": {
+          "accuracy": 1.0,
+          "correct": 7,
+          "n": 7
+        },
+        "malformed": {
+          "accuracy": 1.0,
+          "correct": 4,
+          "n": 4
+        },
+        "multi_hop": {
+          "accuracy": 1.0,
+          "correct": 7,
+          "n": 7
+        },
+        "no_path": {
+          "accuracy": 1.0,
+          "correct": 3,
+          "n": 3
+        },
+        "single_hop": {
+          "accuracy": 1.0,
+          "correct": 4,
+          "n": 4
+        },
+        "unanswerable": {
+          "accuracy": 1.0,
+          "correct": 2,
+          "n": 2
+        }
+      },
+      "correct_abstention_rate": 1.0,
+      "entity_precision_at_k": 1.0,
+      "entity_recall_at_k": 1.0,
+      "error_handling_accuracy": 1.0,
+      "evidence_precision": 1.0,
+      "latency": {
+        "mean_ms": 5.52,
+        "n": 36,
+        "p50_ms": 2.91,
+        "p95_ms": 25.16,
+        "p99_ms": 41.49
+      },
+      "n_cases": 36,
+      "no_path_correct_rejection_rate": 1.0,
+      "overall_accuracy": 1.0,
+      "path_recall_at_k": 1.0,
+      "shortest_path_correct": 1.0,
+      "source_attribution_coverage": 1.0,
+      "tool_success_rate": 1.0
+    }
+  },
+  "failures": [],
+  "gold": {
+    "dataset_revision": "demo-fbbbfb9663a7feee",
+    "sha256": "8202771f96df996a41000d8a1153db8424d2ddc30d7c888467c0d8acd39ebc2f",
+    "total": 113
+  },
+  "host": {
+    "cpus": 256,
+    "platform": "Linux-6.8.0-137-generic-x86_64-with-glibc2.39",
+    "python": "3.13.12"
+  },
+  "note": "",
+  "overall": {
+    "by_category": {
+      "alias": {
+        "accuracy": 1.0,
+        "correct": 12,
+        "n": 12
+      },
+      "ambiguous": {
+        "accuracy": 1.0,
+        "correct": 5,
+        "n": 5
+      },
+      "context": {
+        "accuracy": 1.0,
+        "correct": 11,
+        "n": 11
+      },
+      "entity_lookup": {
+        "accuracy": 1.0,
+        "correct": 22,
+        "n": 22
+      },
+      "malformed": {
+        "accuracy": 1.0,
+        "correct": 12,
+        "n": 12
+      },
+      "multi_hop": {
+        "accuracy": 1.0,
+        "correct": 22,
+        "n": 22
+      },
+      "no_path": {
+        "accuracy": 1.0,
+        "correct": 9,
+        "n": 9
+      },
+      "single_hop": {
+        "accuracy": 1.0,
+        "correct": 14,
+        "n": 14
+      },
+      "unanswerable": {
+        "accuracy": 1.0,
+        "correct": 6,
+        "n": 6
+      }
+    },
+    "correct_abstention_rate": 1.0,
+    "entity_precision_at_k": 1.0,
+    "entity_recall_at_k": 1.0,
+    "error_handling_accuracy": 1.0,
+    "evidence_precision": 1.0,
+    "latency": {
+      "mean_ms": 6.26,
+      "n": 113,
+      "p50_ms": 2.8,
+      "p95_ms": 17.65,
+      "p99_ms": 94.9
+    },
+    "n_cases": 113,
+    "no_path_correct_rejection_rate": 1.0,
+    "overall_accuracy": 1.0,
+    "path_recall_at_k": 1.0,
+    "shortest_path_correct": 1.0,
+    "source_attribution_coverage": 1.0,
+    "tool_success_rate": 1.0
+  },
+  "run_at": "2026-11-23T22:30:47Z",
+  "splits_run": "all",
+  "target": "in-process"
+}

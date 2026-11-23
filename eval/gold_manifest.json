@@ -1,0 +1,59 @@
+{
+  "by_category": {
+    "alias": {
+      "dev": 5,
+      "frozen": 3,
+      "unseen": 4
+    },
+    "ambiguous": {
+      "dev": 2,
+      "frozen": 1,
+      "unseen": 2
+    },
+    "context": {
+      "dev": 4,
+      "frozen": 4,
+      "unseen": 3
+    },
+    "entity_lookup": {
+      "dev": 9,
+      "frozen": 6,
+      "unseen": 7
+    },
+    "malformed": {
+      "dev": 5,
+      "frozen": 3,
+      "unseen": 4
+    },
+    "multi_hop": {
+      "dev": 9,
+      "frozen": 6,
+      "unseen": 7
+    },
+    "no_path": {
+      "dev": 4,
+      "frozen": 2,
+      "unseen": 3
+    },
+    "single_hop": {
+      "dev": 6,
+      "frozen": 4,
+      "unseen": 4
+    },
+    "unanswerable": {
+      "dev": 2,
+      "frozen": 2,
+      "unseen": 2
+    }
+  },
+  "dataset_revision": "demo-fbbbfb9663a7feee",
+  "note": "Synthetic templated cases with oracles computed from data/demo; not real user tasks.",
+  "seed": 7771,
+  "sha256": "8202771f96df996a41000d8a1153db8424d2ddc30d7c888467c0d8acd39ebc2f",
+  "splits": {
+    "dev": 46,
+    "frozen": 31,
+    "unseen": 36
+  },
+  "total": 113
+}

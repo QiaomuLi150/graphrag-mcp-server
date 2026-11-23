@@ -1,0 +1,14 @@
+{
+  "before": "ok 261ms",
+  "during_tool_call": "DB_UNAVAILABLE retryable=True msg='graph database is unavailable' 7252ms",
+  "during_health": 200,
+  "during_ready": [
+    503,
+    {
+      "status": "unavailable"
+    }
+  ],
+  "recovered_after_s": 17.2,
+  "recovery_attempts": 3,
+  "outage_total_s": 28.4
+}

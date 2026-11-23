@@ -1,0 +1,106 @@
+{
+  "direct": [
+    {
+      "concurrency": 1,
+      "error_rate": 0.0,
+      "errors": 0,
+      "mean_ms": 3.83,
+      "n": 400,
+      "p50_ms": 2.71,
+      "p95_ms": 9.14,
+      "p99_ms": 20.6,
+      "requests": 400,
+      "throughput_rps": 261.2,
+      "wall_s": 1.53
+    },
+    {
+      "concurrency": 4,
+      "error_rate": 0.0,
+      "errors": 0,
+      "mean_ms": 6.82,
+      "n": 400,
+      "p50_ms": 4.76,
+      "p95_ms": 16.63,
+      "p99_ms": 26.9,
+      "requests": 400,
+      "throughput_rps": 585.4,
+      "wall_s": 0.68
+    },
+    {
+      "concurrency": 8,
+      "error_rate": 0.0,
+      "errors": 0,
+      "mean_ms": 15.08,
+      "n": 400,
+      "p50_ms": 9.89,
+      "p95_ms": 36.54,
+      "p99_ms": 98.47,
+      "requests": 400,
+      "throughput_rps": 526.9,
+      "wall_s": 0.76
+    }
+  ],
+  "host": {
+    "cpus": 256,
+    "loadavg": [
+      27.14794921875,
+      25.27978515625,
+      24.759765625
+    ],
+    "platform": "Linux-6.8.0-137-generic-x86_64-with-glibc2.39",
+    "python": "3.13.12"
+  },
+  "mcp": [
+    {
+      "concurrency": 1,
+      "error_rate": 0.0,
+      "errors": 0,
+      "mean_ms": 8.44,
+      "n": 400,
+      "p50_ms": 7.08,
+      "p95_ms": 16.2,
+      "p99_ms": 21.67,
+      "requests": 400,
+      "throughput_rps": 118.4,
+      "wall_s": 3.38
+    },
+    {
+      "concurrency": 4,
+      "error_rate": 0.0,
+      "errors": 0,
+      "mean_ms": 21.15,
+      "n": 400,
+      "p50_ms": 16.0,
+      "p95_ms": 39.97,
+      "p99_ms": 160.12,
+      "requests": 400,
+      "throughput_rps": 188.9,
+      "wall_s": 2.12
+    },
+    {
+      "concurrency": 8,
+      "error_rate": 0.0,
+      "errors": 0,
+      "mean_ms": 37.16,
+      "n": 400,
+      "p50_ms": 26.95,
+      "p95_ms": 85.53,
+      "p99_ms": 212.98,
+      "requests": 400,
+      "throughput_rps": 214.3,
+      "wall_s": 1.87
+    }
+  ],
+  "note": "server in non-root read-only container (rate limit raised for benchmark); Neo4j Enterprise 5.23 container; shared 256-core host (see host.loadavg)",
+  "run_at": "2026-11-23T22:39:28Z",
+  "target": "docker-compose-local",
+  "workload": {
+    "cases": 101,
+    "levels": [
+      1,
+      4,
+      8
+    ],
+    "requests_per_level": 400
+  }
+}
