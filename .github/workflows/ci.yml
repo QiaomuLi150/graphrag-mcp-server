@@ -74,7 +74,7 @@ jobs:
         run: |
           test "$(docker run --rm --entrypoint id graphrag-mcp:ci -u)" = "10001"
           ! docker run --rm --entrypoint sh graphrag-mcp:ci -c 'test -e /app/tools || test -e /app/data'
-      - uses: aquasecurity/trivy-action@0.28.0
+      - uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: graphrag-mcp:ci
           severity: CRITICAL,HIGH
@@ -86,8 +86,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
-      - uses: gitleaks/gitleaks-action@v2
-        env: {GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+      - name: gitleaks (full history, CLI container; free, no licence key)
+        run: docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.30.1 detect --source /repo --no-banner --redact --verbose
       - uses: astral-sh/setup-uv@v5
         with: {version: "0.10.7"}
       - run: uv sync --frozen
