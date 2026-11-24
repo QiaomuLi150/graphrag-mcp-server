@@ -24,6 +24,9 @@ ARG GIT_SHA=unknown
 ENV PATH="/app/.venv/bin:$PATH" \
     PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 \
     GRAPHRAG_GIT_SHA=${GIT_SHA} GRAPHRAG_HOST=0.0.0.0 GRAPHRAG_PORT=8080
+# Patch OS packages and drop pip/setuptools/wheel (bundled, vendored libs were flagged by Trivy; not needed at runtime).
+RUN apt-get update && apt-get -y --no-install-recommends upgrade && rm -rf /var/lib/apt/lists/* \
+    && python -m pip uninstall -y pip setuptools wheel >/dev/null 2>&1 || true
 RUN useradd --uid 10001 --no-create-home --shell /usr/sbin/nologin app
 WORKDIR /app
 COPY --from=build --chown=app:app /app/.venv /app/.venv
