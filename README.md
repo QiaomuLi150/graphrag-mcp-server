@@ -1,10 +1,12 @@
 # graphrag-mcp-server
 
+[![ci](https://github.com/QiaomuLi150/graphrag-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/QiaomuLi150/graphrag-mcp-server/actions/workflows/ci.yml) ![license](https://img.shields.io/badge/license-MIT-blue) ![MCP](https://img.shields.io/badge/MCP-2026--07--28-informational)
+
 A **read-only, authenticated GraphRAG knowledge service** exposed over the Model Context Protocol (Streamable HTTP).
 Any MCP client discovers the same four typed tools and gets bounded, source-attributed evidence from a Neo4j knowledge
 graph seeded only with **synthetic public data**. Open source (MIT), **$0 to run**: Docker + Neo4j Community, no cloud account, no LLM or paid API.
 
-> **Status:** complete and verified locally (live Neo4j, three independent MCP client stacks, CI-ready). **Not deployed anywhere remote**:
+> **Status:** a local reference implementation, verified with live Neo4j, three MCP client stacks and CI on GitHub's free runners. "Stateless" here means request-level statelessness, demonstrated with two local server processes behind an alternating proxy ([docs/PROTOCOL.md](docs/PROTOCOL.md)); it is **not a production deployment**, not hosted anywhere, and makes no HA or scale claim. **Not deployed anywhere remote**:
 > optional free hosting was evaluated, not verified ([docs/FREE_HOSTING.md](docs/FREE_HOSTING.md)). No production, HA or adoption claims.
 > It is an MCP *tool provider*, not a chatbot: no LLM is in the request path.
 
@@ -66,7 +68,7 @@ uv sync --frozen && docker compose up -d neo4j
 export GRAPHRAG_TEST_NEO4J_ADMIN_PASSWORD=local-dev-admin-pw GRAPHRAG_REQUIRE_NEO4J=1
 uv run ruff check . && uv run mypy src tools && uv run pytest -rs
 ```
-Last local result on Neo4j Community: **108 passed, 8 skipped** (7 need Neo4j Enterprise RBAC, 1 is a deployment-only smoke test; each skip prints its reason).
+Last local result on Neo4j Community: **117 passed, 8 skipped** (7 need Neo4j Enterprise RBAC, 1 is a deployment-only smoke test; each skip prints its reason).
 On Enterprise: 115 passed, 1 skipped. GitHub Actions workflow (`.github/workflows/ci.yml`: ruff, mypy, unit, integration on Neo4j Community, compose end-to-end,
 image checks, Trivy, gitleaks, pip-audit) is written but **has not run yet** (no remote). Results, baselines and caveats: [docs/EVALUATION.md](docs/EVALUATION.md).
 
