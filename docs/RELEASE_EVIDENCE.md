@@ -10,7 +10,7 @@ Verified on the raw wire and with a real client; two-process/no-sticky-session r
 ## Checks (local, all re-runnable)
 | Check | Result |
 |---|---|
-| `pytest` on Neo4j Community (default stack) | **116 passed, 8 skipped** (7 need Enterprise RBAC, 1 deployment-only; reasons printed) |
+| `pytest` on Neo4j Community (default stack) | **117 passed, 8 skipped** (7 need Enterprise RBAC, 1 deployment-only; reasons printed) |
 | `pytest` on Neo4j Enterprise (optional compose) | 115 passed / 1 skipped before the protocol tests were added; protocol tests are edition-independent |
 | `ruff check`, `ruff format --check`, `mypy src tools` | clean |
 | `bandit -r src -ll` | 0 findings (tools/eval scripts: only subprocess/`assert`/seeded-PRNG notes, not shipped in the runtime image) |
@@ -19,8 +19,8 @@ Verified on the raw wire and with a real client; two-process/no-sticky-session r
 | History audit (`python -m tools.audit_history`, every commit and blob) | see [audit/HISTORY_AUDIT.md](audit/HISTORY_AUDIT.md) |
 | Docker Compose one-command start from a fresh clone + demo | PASS |
 | Gold evaluation (113 synthetic cases) via MCP | 113/113 — synthetic, templated; not evidence of real-world retrieval quality |
-| GitHub Actions on free runners | **see release notes after publication** (written; not run until pushed) |
-| Container image scan (Trivy), gitleaks | CI only; not run locally |
+| GitHub Actions (free `ubuntu-24.04` runners, private repo) | **All 5 jobs green**: static-and-unit (ruff, format, mypy, bandit, history audit, unit), integration (Neo4j Community service), compose-e2e (one-command stack + demo), container (non-root/no-seeder checks + Trivy HIGH/CRITICAL), supply-chain (gitleaks full history, pip-audit). Run ids/URLs: repository Actions tab |
+| Trivy / gitleaks | CI only. First Trivy run found 5 HIGH items in the image (OS zlib + pip/setuptools-vendored libs); fixed by patching OS packages and removing pip/setuptools from the runtime image; rescan clean |
 
 ## Tested capabilities vs. unsupported claims
 Tested: 4 typed bounded read-only tools; JWT auth matrix; READ-mode write protection (all editions) and role-based protection (Enterprise); typed errors;
